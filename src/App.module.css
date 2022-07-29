@@ -1,0 +1,8 @@
+/* Heading style */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+.App {
+  text-align: center;
+  font-family: 'Abril Fatface', cursive;;
+}
+
