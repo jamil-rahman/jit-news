@@ -1,3 +1,30 @@
-.container{
-    margin-top: 3%;
+.container {
+  /* margin: 3%; */
+  margin: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+.header {
+  cursor: pointer;
+  margin-bottom: 70px;
+  width: 16%;
+  border: 1px solid grey;
+  border-radius: 8px;
+  font-style: italic;
+  box-shadow: 9px 8px 5px 3px rgba(0, 0, 0, 0.66);
+  -webkit-box-shadow: 9px 8px 5px 3px rgba(0, 0, 0, 0.66);
+  -moz-box-shadow: 9px 8px 5px 3px rgba(0, 0, 0, 0.66);
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .header{
+        width: 142px;
+        height: 40px;
+        display: flex;
+        text-align: center;
+        padding: 2px;
+    }
+  }

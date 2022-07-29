@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from "react";
 const NewsContext = createContext();
 
 export const NewsProvider = ({ children }) => {
-  const [news, setNews] = useState(null);
+  const [news, setNews] = useState([]);
   const [searchTerm, setSearchTerm] = useState("")
 
   const getNews = async () => {
@@ -13,8 +13,8 @@ export const NewsProvider = ({ children }) => {
     );
     // res2= await fetch("https://newsapi.org/v2/top-headlines?category=sports&apiKey=831f11f5a7cb44e78053ec5ec7c56012")
     const data = await res.json();
-    setNews(data)
-    console.log(data);
+    setNews(data.articles)
+    console.log(data.articles);
   };
 
   useEffect(()=>{
