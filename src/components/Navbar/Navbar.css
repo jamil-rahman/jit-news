@@ -1,0 +1,12 @@
+.nav_container {
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 1px solid gray;
+}
+.nav_header{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2rem;
+}
+.nav-item{
+    font-size: 1em;
+    font-weight: 700;
+}

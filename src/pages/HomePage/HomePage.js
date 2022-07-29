@@ -1,6 +1,9 @@
-import styles from 'HomePage.module.css'
+import styles from './HomePage.module.css'
+import Navbar from '../../components/Navbar/Navbar'
 export default function HomePage() {
   return (
-    <div>HomePage</div>
+    <div className={styles.home_container}>
+      <Navbar />
+    </div>
   )
 }
