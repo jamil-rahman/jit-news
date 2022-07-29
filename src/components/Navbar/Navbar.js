@@ -37,8 +37,8 @@ export default function Navbar() {
                 type="text"
                 placeholder="Search for anything"
               />
-              <span class="input-group-text border-0" id="search-addon">
-                <i class="fa fa-search"></i>
+              <span className="input-group-text border-0" id="search-addon">
+                <i className="fa fa-search"></i>
               </span>
             </form>
           </div>
