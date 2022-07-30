@@ -7,7 +7,7 @@ export default function HomePage() {
   const { news } = useContext(NewsContext);
   return (
     <div className={styles.home_container}>
-      <News data={news} />
+      <News data={news}  />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import useLocalStorage from "../utils/useLocalStorage";
 
-//const key = "831f11f5a7cb44e78053ec5ec7c56012";
 const NewsContext = createContext();
 
 export const NewsProvider = ({ children }) => {
@@ -9,25 +9,28 @@ export const NewsProvider = ({ children }) => {
   const [query, setQuery] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState(null);
+  const [btnState, setBtnState] = useState(false);
+  const [btnValue, setBtnValue] = useState(null);
 
   const apiKey = "d3a68d3a93a54948a016a1553bc4d20c";
   const apiKey2 = "831f11f5a7cb44e78053ec5ec7c56012";
+  const apiKey3 = "3bb145fcf9ee4e82a4096cad9f5406eb";
 
   //default api request
   const getNews = () => {
     axios
-      .get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`)
+      .get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey3}`)
       .then((response) => setNews(response.data.articles))
       .catch((error) => console.log(error));
     // res2= await fetch("https://newsapi.org/v2/top-headlines?category=sports&apiKey=831f11f5a7cb44e78053ec5ec7c56012")
     //   const data = await res.json();
   };
 
-  //saerch api request
+  // search api request
   const getSearchResults = () => {
     axios
       .get(
-        `https://newsapi.org/v2/everything?q=${query}&pageSize=22&apiKey=${apiKey}`
+        `https://newsapi.org/v2/everything?q=${query}&pageSize=100&apiKey=${apiKey3}`
       )
       .then((response) => setNews(response.data.articles))
       .catch((error) => {
@@ -38,7 +41,7 @@ export const NewsProvider = ({ children }) => {
   const getCategorizedResults = () => {
     axios
       .get(
-        `https://newsapi.org/v2/top-headlines?category=${category}&country=us&apiKey=${apiKey}`
+        `https://newsapi.org/v2/top-headlines?category=${category}&country=us&apiKey=${apiKey3}`
       )
       .then((response) => setNews(response.data.articles))
       .catch((error) => console.log(error));
@@ -53,9 +56,9 @@ export const NewsProvider = ({ children }) => {
 
   // useEffect(() => {
   //   getSearchResults();
-  //   return()=>{
+  //   return () => {
   //     getNews();
-  //   }
+  //   };
   // }, [query]);
 
   // useEffect(() => {
@@ -68,7 +71,17 @@ export const NewsProvider = ({ children }) => {
 
   return (
     <NewsContext.Provider
-      value={{ news, setSearchTerm, searchTerm, getSearch, setCategory }}
+      value={{
+        news,
+        setSearchTerm,
+        searchTerm,
+        getSearch,
+        setCategory,
+        setBtnState,
+        btnState,
+        btnValue,
+        setBtnValue,
+      }}
     >
       {children}
     </NewsContext.Provider>

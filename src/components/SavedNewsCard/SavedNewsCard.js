@@ -36,19 +36,21 @@ const style = {
   padding: "2px",
   overflow: "scroll",
 
-  ['@media (max-width:400px)']: { // eslint-disable-line no-useless-computed-key
-    width: '80%'
+  ["@media (max-width:400px)"]: {
+    // eslint-disable-line no-useless-computed-key
+    width: "80%",
   },
-  ['@media (max-width:900px)']: { // eslint-disable-line no-useless-computed-key
-    width: '80%',
-    height: '20%'
+  ["@media (max-width:900px)"]: {
+    // eslint-disable-line no-useless-computed-key
+    width: "80%",
+    height: "20%",
   },
-  ['@media (max-width:1024px)']: { // eslint-disable-line no-useless-computed-key
-    width: '60%',
-    height: '40%'
+  ["@media (max-width:1024px)"]: {
+    // eslint-disable-line no-useless-computed-key
+    width: "60%",
+    height: "40%",
   },
 };
-
 
 export default function NewsCard({
   image,
@@ -57,12 +59,12 @@ export default function NewsCard({
   url,
   content,
   details,
-  btnValue
+  btnValue,
 }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const {btnState, setBtnState,  setBtnValue} = useContext(NewsContext)
+  const { btnState, setBtnState, setBtnValue } = useContext(NewsContext);
 
   return (
     <>
@@ -101,8 +103,13 @@ export default function NewsCard({
             <i className="fa fa-ellipsis-v mx-2" aria-hidden="true"></i>
           </Button>
           <Button size="small">
-            <StyledLink underline="none" onClick={()=>setBtnState(!btnState)}>
-              Save <i className="fa fa-bookmark-o" aria-hidden="true"/>
+            <StyledLink underline="none">
+              Saved <i className="fa fa-bookmark-o" aria-hidden="true" />
+            </StyledLink>
+          </Button>
+          <Button size="small">
+            <StyledLink underline="none">
+              Delete <i className="fa fa-trash" aria-hidden="true"></i>
             </StyledLink>
           </Button>
         </CardActions>

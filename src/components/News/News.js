@@ -3,9 +3,11 @@ import Grid from "@mui/material/Grid";
 import NewsCard from "../NewsCard/NewsCard";
 import { convertFromISOStringToLocaleDate } from "../../utils/convertDate";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import { useContext } from "react";
+import NewsContext from "../../context/NewsContext";
 
-export default function News({data}) {
-  
+export default function News({data, buttonValue}) {
+  const {btnValue} = useContext(NewsContext)
   return (
     <div className={styles.container}>
       {data ? (
@@ -27,6 +29,7 @@ export default function News({data}) {
                   url={article.url}
                   content={article.content}
                   details={article.description}
+                  btnValue={btnValue}
                 />
               </Grid>
             ))}
