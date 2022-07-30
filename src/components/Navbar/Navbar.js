@@ -12,8 +12,8 @@ export default function Navbar() {
     <>
       <nav className="navbar navbar-expand-sm navbar-light bg-light nav_container">
         <div className="container-fluid">
-        <NavLink to="/" className="nav-link">
-        <h4 className="nav_header">Nexus News</h4> 
+          <NavLink to="/" className="nav-link">
+            <h4 className="nav_header">Nexus News</h4>
           </NavLink>
           <button
             className="navbar-toggler"
@@ -37,7 +37,7 @@ export default function Navbar() {
                 <NavLink to="/saved" className="nav-link">
                   <i className="fa fa-bookmark mx-1" aria-hidden="true"></i>{" "}
                   Saved
-                  </NavLink>
+                </NavLink>
               </li>
             </ul>
             <form className="d-flex" onSubmit={getSearch}>

@@ -8,8 +8,8 @@ import { NewsProvider } from './context/NewsContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <NewsProvider>
+    {/* <NewsProvider> */}
     <App />
-    </NewsProvider>
+    {/* </NewsProvider> */}
   </React.StrictMode>
 );

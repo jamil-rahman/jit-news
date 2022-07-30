@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import NewsContext from "../../context/NewsContext";
-
 import SavedNews from "../../components/SavedNews/SavedNews";
 
 export default function ReadLater() {

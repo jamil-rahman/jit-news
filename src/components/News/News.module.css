@@ -19,12 +19,12 @@
   -moz-box-shadow: 9px 8px 5px 3px rgba(0, 0, 0, 0.66);
 }
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    .header{
-        width: 142px;
-        height: 40px;
-        display: flex;
-        text-align: center;
-        padding: 2px;
-    }
+  /* For mobile phones: */
+  .header {
+    width: 142px;
+    height: 40px;
+    display: flex;
+    text-align: center;
+    padding: 2px;
   }
+}

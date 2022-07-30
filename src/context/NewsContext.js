@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import useLocalStorage from "../utils/useLocalStorage";
-
+import { useNavigate } from "react-router-dom";
 const NewsContext = createContext();
 
 export const NewsProvider = ({ children }) => {
@@ -9,29 +9,30 @@ export const NewsProvider = ({ children }) => {
   const [query, setQuery] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState(null);
-  const [newsArray, setNewsArray] = useLocalStorage("News_Array",[])
+  const [newsArray, setNewsArray] = useLocalStorage("News_Array", []);
+  let navigate = useNavigate();
 
-  const apiKey = "d3a68d3a93a54948a016a1553bc4d20c";
-  const apiKey2 = "831f11f5a7cb44e78053ec5ec7c56012";
+  // const apiKey = "d3a68d3a93a54948a016a1553bc4d20c";
+  // const apiKey2 = "831f11f5a7cb44e78053ec5ec7c56012";
   const apiKey3 = "3bb145fcf9ee4e82a4096cad9f5406eb";
 
   //default api request
   const getNews = () => {
     const cancelTokenSource = axios.CancelToken.source();
     axios
-      .get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey3}`,{
-      cancelToken: cancelTokenSource.token})
+      .get(
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey3}`,
+        {
+          cancelToken: cancelTokenSource.token,
+        }
+      )
       .then((response) => {
-        setNews(response.data.articles)
+        setNews(response.data.articles);
         cancelTokenSource.cancel();
       })
       .catch((error) => {
-      console.log(error)
-     
-    });
-     
-    // res2= await fetch("https://newsapi.org/v2/top-headlines?category=sports&apiKey=831f11f5a7cb44e78053ec5ec7c56012")
-    //   const data = await res.json();
+        console.log(error);
+      });
   };
 
   // search api request
@@ -41,7 +42,8 @@ export const NewsProvider = ({ children }) => {
         `https://newsapi.org/v2/everything?q=${query}&pageSize=100&apiKey=${apiKey3}`
       )
       .then((response) => setNews(response.data.articles))
-      .catch((error) => {console.log(error);
+      .catch((error) => {
+        console.log(error);
       });
   };
 
@@ -59,38 +61,46 @@ export const NewsProvider = ({ children }) => {
     e.preventDefault();
     setQuery(searchTerm);
     setSearchTerm("");
+    navigate("/", { replace: true })
   };
 
   //Save Articles in LocalStorage
   const saveArticlesInLocalStorage = (image, title, date, content, details) => {
-    const article = {savedImage: image, savedTitle: title, savedDate: date, savedContent: content, savedDetails: details  }
+    const article = {
+      savedImage: image,
+      savedTitle: title,
+      savedDate: date,
+      savedContent: content,
+      savedDetails: details,
+    };
     setNewsArray((previousArticles) => {
-      return [...previousArticles, article]
-    })
-  }
+      return [...previousArticles, article];
+    });
+  };
 
   //Delete Articles
-  const deleteArticlesFromLocalStorage = (title) =>{
-    const filteredArray = [...newsArray].filter(article=>article.savedTitle !== title)
+  const deleteArticlesFromLocalStorage = (title) => {
+    const filteredArray = [...newsArray].filter(
+      (article) => article.savedTitle !== title
+    );
     setNewsArray(filteredArray);
-  }
+  };
 
-
-  // useEffect(() => {
-  //   getSearchResults();
-  //   return () => {
-  //     getNews();
-  //   };
-  // }, [query]);
+  useEffect(() => {
+    getSearchResults();
+    return () => {
+      getNews();
+    };
+  }, [query]);
 
   useEffect(() => {
     getNews();
-  return
+    return;
   }, []);
 
-  // useEffect(()=>{
-  //   getCategorizedResults();
-  // },[category])
+  useEffect(() => {
+    getCategorizedResults();
+  }, [category]);
 
   return (
     <NewsContext.Provider
@@ -102,7 +112,7 @@ export const NewsProvider = ({ children }) => {
         setCategory,
         saveArticlesInLocalStorage,
         deleteArticlesFromLocalStorage,
-        newsArray
+        newsArray,
       }}
     >
       {children}

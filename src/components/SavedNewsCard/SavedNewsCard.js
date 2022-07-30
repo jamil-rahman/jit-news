@@ -65,7 +65,7 @@ export default function SavedNewsCard({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const {deleteArticlesFromLocalStorage} = useContext(NewsContext);
+  const { deleteArticlesFromLocalStorage } = useContext(NewsContext);
 
   return (
     <>
@@ -108,7 +108,10 @@ export default function SavedNewsCard({
               Saved <i className="fa fa-bookmark-o" aria-hidden="true" />
             </StyledLink>
           </Button> */}
-          <Button size="small" onClick={()=>deleteArticlesFromLocalStorage(title)}>
+          <Button
+            size="small"
+            onClick={() => deleteArticlesFromLocalStorage(title)}
+          >
             <StyledLink underline="none">
               Delete <i className="fa fa-trash" aria-hidden="true"></i>
             </StyledLink>

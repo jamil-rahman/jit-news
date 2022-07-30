@@ -3,8 +3,7 @@ import Grid from "@mui/material/Grid";
 import SavedNewsCard from "../SavedNewsCard/SavedNewsCard";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
-
-export default function SavedNews({data}) {
+export default function SavedNews({ data }) {
   return (
     <div className={styles.container}>
       {data ? (

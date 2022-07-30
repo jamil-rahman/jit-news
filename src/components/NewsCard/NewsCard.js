@@ -36,32 +36,28 @@ const style = {
   padding: "2px",
   overflow: "scroll",
 
-  ['@media (max-width:400px)']: { // eslint-disable-line no-useless-computed-key
-    width: '80%'
+  ["@media (max-width:400px)"]: {
+    // eslint-disable-line no-useless-computed-key
+    width: "80%",
   },
-  ['@media (max-width:900px)']: { // eslint-disable-line no-useless-computed-key
-    width: '80%',
-    height: '20%'
+  ["@media (max-width:900px)"]: {
+    // eslint-disable-line no-useless-computed-key
+    width: "80%",
+    height: "20%",
   },
-  ['@media (max-width:1024px)']: { // eslint-disable-line no-useless-computed-key
-    width: '60%',
-    height: '40%'
+  ["@media (max-width:1024px)"]: {
+    // eslint-disable-line no-useless-computed-key
+    width: "60%",
+    height: "40%",
   },
 };
 
-
-export default function NewsCard({
-  image,
-  title,
-  date,
-  content,
-  details,
-}) {
+export default function NewsCard({ image, title, date, content, details }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
- 
-  const {saveArticlesInLocalStorage} = useContext(NewsContext)
+
+  const { saveArticlesInLocalStorage } = useContext(NewsContext);
   return (
     <>
       <StyledCard sx={{ maxWidth: 400, minHeight: 300, maxHeight: 500 }}>
@@ -98,9 +94,14 @@ export default function NewsCard({
             Read More{" "}
             <i className="fa fa-ellipsis-v mx-2" aria-hidden="true"></i>
           </Button>
-          <Button size="small" onClick={()=>saveArticlesInLocalStorage(image,title,date,content,details)}>
+          <Button
+            size="small"
+            onClick={() =>
+              saveArticlesInLocalStorage(image, title, date, content, details)
+            }
+          >
             <StyledLink underline="none">
-              Save <i className="fa fa-bookmark-o" aria-hidden="true"/>
+              Save <i className="fa fa-bookmark-o" aria-hidden="true" />
             </StyledLink>
           </Button>
         </CardActions>

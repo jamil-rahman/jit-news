@@ -4,7 +4,7 @@ import NewsCard from "../NewsCard/NewsCard";
 import { convertFromISOStringToLocaleDate } from "../../utils/convertDate";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
-export default function News({data}) {
+export default function News({ data }) {
   return (
     <div className={styles.container}>
       {data ? (
