@@ -33,7 +33,19 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   padding: "2px",
-  overflow: "scroll"
+  overflow: "scroll",
+
+  ['@media (max-width:400px)']: { // eslint-disable-line no-useless-computed-key
+    width: '80%'
+  },
+  ['@media (max-width:900px)']: { // eslint-disable-line no-useless-computed-key
+    width: '80%',
+    height: '20%'
+  },
+  ['@media (max-width:1024px)']: { // eslint-disable-line no-useless-computed-key
+    width: '60%',
+    height: '40%'
+  },
 };
 
 

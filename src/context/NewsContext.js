@@ -5,13 +5,15 @@ import axios from "axios";
 const NewsContext = createContext();
 
 export const NewsProvider = ({ children }) => {
-  const [news, setNews] = useState([]);
+  const [news, setNews] = useState(null);
   const [query, setQuery] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [category, setCategory] = useState(null);
 
   const apiKey = "d3a68d3a93a54948a016a1553bc4d20c";
-  const apiKey2 = "831f11f5a7cb44e78053ec5ec7c56012"
-//default api request
+  const apiKey2 = "831f11f5a7cb44e78053ec5ec7c56012";
+
+  //default api request
   const getNews = () => {
     axios
       .get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`)
@@ -21,7 +23,7 @@ export const NewsProvider = ({ children }) => {
     //   const data = await res.json();
   };
 
-//saerch api request
+  //saerch api request
   const getSearchResults = () => {
     axios
       .get(
@@ -33,6 +35,16 @@ export const NewsProvider = ({ children }) => {
       });
   };
 
+  const getCategorizedResults = () => {
+    axios
+      .get(
+        `https://newsapi.org/v2/top-headlines?category=${category}&country=us&apiKey=${apiKey}`
+      )
+      .then((response) => setNews(response.data.articles))
+      .catch((error) => console.log(error));
+  };
+
+  //getting search term from searchbar
   const getSearch = (e) => {
     e.preventDefault();
     setQuery(searchTerm);
@@ -50,9 +62,13 @@ export const NewsProvider = ({ children }) => {
   //   getNews();
   // }, []);
 
+  // useEffect(()=>{
+  //   getCategorizedResults();
+  // },[category])
+
   return (
     <NewsContext.Provider
-      value={{ news, setSearchTerm, searchTerm, getSearch }}
+      value={{ news, setSearchTerm, searchTerm, getSearch, setCategory }}
     >
       {children}
     </NewsContext.Provider>

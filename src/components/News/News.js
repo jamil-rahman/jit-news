@@ -1,20 +1,17 @@
 import styles from "./News.module.css";
-import NewsContext from "../../context/NewsContext";
-import { useContext } from "react";
 import Grid from "@mui/material/Grid";
 import NewsCard from "../NewsCard/NewsCard";
 import { convertFromISOStringToLocaleDate } from "../../utils/convertDate";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
-export default function News() {
-  const { news } = useContext(NewsContext);
-  console.log(news);
+export default function News({data}) {
+  
   return (
     <div className={styles.container}>
-      {news ? (
+      {data ? (
         <>
           <Grid container spacing={12}>
-            {news.map((article) => (
+            {data.map((article) => (
               <Grid
                 item
                 xs={12}

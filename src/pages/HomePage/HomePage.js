@@ -1,11 +1,13 @@
 import styles from "./HomePage.module.css";
-import Navbar from "../../components/Navbar/Navbar";
 import News from "../../components/News/News";
+import { useContext } from "react";
+import NewsContext from "../../context/NewsContext";
+
 export default function HomePage() {
+  const { news } = useContext(NewsContext);
   return (
     <div className={styles.home_container}>
-      <Navbar />
-      <News />
+      <News data={news} />
     </div>
   );
 }
