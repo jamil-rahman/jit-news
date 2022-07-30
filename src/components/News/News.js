@@ -8,12 +8,11 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export default function News() {
   const { news } = useContext(NewsContext);
+  console.log(news);
   return (
     <div className={styles.container}>
       {news ? (
         <>
-          <h2 className={styles.header}>Top News!</h2>
-
           <Grid container spacing={12}>
             {news.map((article) => (
               <Grid
@@ -37,9 +36,7 @@ export default function News() {
           </Grid>
         </>
       ) : (
-        
-          <LoadingSpinner />
-       
+        <LoadingSpinner />
       )}
     </div>
   );

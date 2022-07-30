@@ -1,7 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import  './Navbar.css'
+import { useContext } from "react";
+import NewsContext from "../../context/NewsContext";
+import "./Navbar.css";
 
 export default function Navbar() {
+  const { searchTerm, setSearchTerm, getSearch } = useContext(NewsContext);
+  const handleChange = (e) => setSearchTerm(e.target.value);
+  console.log(searchTerm);
   return (
     <>
       <nav className="navbar navbar-expand-sm navbar-light bg-light nav_container">
@@ -18,27 +23,30 @@ export default function Navbar() {
           <div className="mx-4 collapse navbar-collapse" id="mynavbar">
             <ul className="navbar-nav me-auto">
               <li className="nav-item">
-              <span>
-                <a className="nav-link" href="#">
-                <i className="fa fa-line-chart mx-1" aria-hidden="true"></i>
-                  Top Headlines
-                </a>
+                <span>
+                  <a className="nav-link" href="#">
+                    <i className="fa fa-line-chart mx-1" aria-hidden="true"></i>
+                    Top Headlines
+                  </a>
                 </span>
-             </li>
-             <li className="nav-item">
+              </li>
+              <li className="nav-item">
                 <a className="nav-link" href="#">
-                <i className="fa fa-bookmark mx-1" aria-hidden="true"></i> Saved
+                  <i className="fa fa-bookmark mx-1" aria-hidden="true"></i>{" "}
+                  Saved
                 </a>
-             </li>
+              </li>
             </ul>
-            <form className="d-flex">
+            <form className="d-flex" onSubmit={getSearch}>
               <input
                 className="form-control me-2"
                 type="text"
+                onChange={handleChange}
+                value={searchTerm}
                 placeholder="Search for anything"
               />
               <span className="input-group-text border-0" id="search-addon">
-                <i className="fa fa-search"></i>
+                <i className="fa fa-search" onClick={getSearch}></i>
               </span>
             </form>
           </div>
