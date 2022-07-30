@@ -19,10 +19,9 @@ export default function SavedNews({data}) {
                 key={Math.random()}
                 style={{ display: "flex" }}
               >
-                {console.log(article.savedImage)}
                 <SavedNewsCard
                   image={article.savedImage}
-                  title={article.savedtitle}
+                  title={article.savedTitle}
                   date={article.savedDate}
                   content={article.savedContent}
                   details={article.savedDetails}

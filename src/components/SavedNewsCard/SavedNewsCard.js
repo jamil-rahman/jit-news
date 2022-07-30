@@ -10,6 +10,7 @@ import Link from "@mui/material/Link";
 import { styled } from "@mui/system";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import NewsContext from "../../context/NewsContext";
 
 const StyledLink = styled(Link)({
   color: "red",
@@ -64,6 +65,8 @@ export default function SavedNewsCard({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const {deleteArticlesFromLocalStorage} = useContext(NewsContext);
+
   return (
     <>
       <StyledCard sx={{ maxWidth: 400, minHeight: 300, maxHeight: 500 }}>
@@ -105,7 +108,7 @@ export default function SavedNewsCard({
               Saved <i className="fa fa-bookmark-o" aria-hidden="true" />
             </StyledLink>
           </Button> */}
-          <Button size="small">
+          <Button size="small" onClick={()=>deleteArticlesFromLocalStorage(title)}>
             <StyledLink underline="none">
               Delete <i className="fa fa-trash" aria-hidden="true"></i>
             </StyledLink>

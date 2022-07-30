@@ -70,8 +70,8 @@ export const NewsProvider = ({ children }) => {
   }
 
   //Delete Articles
-  const deleteArticlesFromLocalStorage = (article) =>{
-    let filteredArray = newsArray.filter(item => item !== article.target.value)
+  const deleteArticlesFromLocalStorage = (title) =>{
+    const filteredArray = [...newsArray].filter(article=>article.savedTitle !== title)
     setNewsArray(filteredArray);
   }
 
