@@ -9,8 +9,9 @@ export const NewsProvider = ({ children }) => {
   const [query, setQuery] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const apiKey = "831f11f5a7cb44e78053ec5ec7c56012";
-
+  const apiKey = "d3a68d3a93a54948a016a1553bc4d20c";
+  const apiKey2 = "831f11f5a7cb44e78053ec5ec7c56012"
+//default api request
   const getNews = () => {
     axios
       .get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`)
@@ -20,10 +21,11 @@ export const NewsProvider = ({ children }) => {
     //   const data = await res.json();
   };
 
+//saerch api request
   const getSearchResults = () => {
     axios
       .get(
-        `https://newsapi.org/v2/everything?q=${query}&apiKey=831f11f5a7cb44e78053ec5ec7c56012`
+        `https://newsapi.org/v2/everything?q=${query}&pageSize=22&apiKey=${apiKey}`
       )
       .then((response) => setNews(response.data.articles))
       .catch((error) => {
@@ -37,13 +39,16 @@ export const NewsProvider = ({ children }) => {
     setSearchTerm("");
   };
 
-  useEffect(() => {
-    getSearchResults();
-  }, [query]);
+  // useEffect(() => {
+  //   getSearchResults();
+  //   return()=>{
+  //     getNews();
+  //   }
+  // }, [query]);
 
-  useEffect(() => {
-    getNews();
-  }, []);
+  // useEffect(() => {
+  //   getNews();
+  // }, []);
 
   return (
     <NewsContext.Provider

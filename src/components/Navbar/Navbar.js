@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useContext } from "react";
 import NewsContext from "../../context/NewsContext";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -11,7 +12,9 @@ export default function Navbar() {
     <>
       <nav className="navbar navbar-expand-sm navbar-light bg-light nav_container">
         <div className="container-fluid">
-          <h4 className="nav_header">Nexus News</h4>
+        <NavLink to="/" className="nav-link">
+        <h4 className="nav_header">Nexus News</h4> 
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -24,17 +27,17 @@ export default function Navbar() {
             <ul className="navbar-nav me-auto">
               <li className="nav-item">
                 <span>
-                  <a className="nav-link" href="#">
+                  <NavLink to="/top" className="nav-link">
                     <i className="fa fa-line-chart mx-1" aria-hidden="true"></i>
                     Top Headlines
-                  </a>
+                  </NavLink>
                 </span>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <NavLink to="/saved" className="nav-link">
                   <i className="fa fa-bookmark mx-1" aria-hidden="true"></i>{" "}
                   Saved
-                </a>
+                  </NavLink>
               </li>
             </ul>
             <form className="d-flex" onSubmit={getSearch}>
