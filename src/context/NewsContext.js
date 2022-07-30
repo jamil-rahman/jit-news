@@ -9,8 +9,7 @@ export const NewsProvider = ({ children }) => {
   const [query, setQuery] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState(null);
-  const [btnState, setBtnState] = useState(false);
-  const [btnValue, setBtnValue] = useState(null);
+  const [newsArray, setNewsArray] = useLocalStorage("News_Array",[])
 
   const apiKey = "d3a68d3a93a54948a016a1553bc4d20c";
   const apiKey2 = "831f11f5a7cb44e78053ec5ec7c56012";
@@ -18,10 +17,19 @@ export const NewsProvider = ({ children }) => {
 
   //default api request
   const getNews = () => {
+    const cancelTokenSource = axios.CancelToken.source();
     axios
-      .get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey3}`)
-      .then((response) => setNews(response.data.articles))
-      .catch((error) => console.log(error));
+      .get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey3}`,{
+      cancelToken: cancelTokenSource.token})
+      .then((response) => {
+        setNews(response.data.articles)
+        cancelTokenSource.cancel();
+      })
+      .catch((error) => {
+      console.log(error)
+     
+    });
+     
     // res2= await fetch("https://newsapi.org/v2/top-headlines?category=sports&apiKey=831f11f5a7cb44e78053ec5ec7c56012")
     //   const data = await res.json();
   };
@@ -33,8 +41,7 @@ export const NewsProvider = ({ children }) => {
         `https://newsapi.org/v2/everything?q=${query}&pageSize=100&apiKey=${apiKey3}`
       )
       .then((response) => setNews(response.data.articles))
-      .catch((error) => {
-        console.log(error);
+      .catch((error) => {console.log(error);
       });
   };
 
@@ -54,6 +61,21 @@ export const NewsProvider = ({ children }) => {
     setSearchTerm("");
   };
 
+  //Save Articles in LocalStorage
+  const saveArticlesInLocalStorage = (image, title, date, content, details) => {
+    const article = {savedImage: image, savedTitle: title, savedDate: date, savedContent: content, savedDetails: details  }
+    setNewsArray((previousArticles) => {
+      return [...previousArticles, article]
+    })
+  }
+
+  //Delete Articles
+  const deleteArticlesFromLocalStorage = (article) =>{
+    let filteredArray = newsArray.filter(item => item !== article.target.value)
+    setNewsArray(filteredArray);
+  }
+
+
   // useEffect(() => {
   //   getSearchResults();
   //   return () => {
@@ -61,9 +83,10 @@ export const NewsProvider = ({ children }) => {
   //   };
   // }, [query]);
 
-  // useEffect(() => {
-  //   getNews();
-  // }, []);
+  useEffect(() => {
+    getNews();
+  return
+  }, []);
 
   // useEffect(()=>{
   //   getCategorizedResults();
@@ -77,10 +100,9 @@ export const NewsProvider = ({ children }) => {
         searchTerm,
         getSearch,
         setCategory,
-        setBtnState,
-        btnState,
-        btnValue,
-        setBtnValue,
+        saveArticlesInLocalStorage,
+        deleteArticlesFromLocalStorage,
+        newsArray
       }}
     >
       {children}

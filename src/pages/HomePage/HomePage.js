@@ -5,6 +5,7 @@ import NewsContext from "../../context/NewsContext";
 
 export default function HomePage() {
   const { news } = useContext(NewsContext);
+  console.log(typeof(news));
   return (
     <div className={styles.home_container}>
       <News data={news}  />

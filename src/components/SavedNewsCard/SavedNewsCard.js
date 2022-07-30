@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-computed-key */
 import React, { useContext, useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -9,10 +10,9 @@ import Link from "@mui/material/Link";
 import { styled } from "@mui/system";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import NewsContext from "../../context/NewsContext";
 
 const StyledLink = styled(Link)({
-  color: "light blue",
+  color: "red",
   fontWeight: "bold",
 });
 
@@ -40,6 +40,7 @@ const style = {
     // eslint-disable-line no-useless-computed-key
     width: "80%",
   },
+  // eslint-disable-next-line no-useless-computed-key
   ["@media (max-width:900px)"]: {
     // eslint-disable-line no-useless-computed-key
     width: "80%",
@@ -52,19 +53,16 @@ const style = {
   },
 };
 
-export default function NewsCard({
+export default function SavedNewsCard({
   image,
   title,
   date,
-  url,
   content,
   details,
-  btnValue,
 }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const { btnState, setBtnState, setBtnValue } = useContext(NewsContext);
 
   return (
     <>
@@ -102,11 +100,11 @@ export default function NewsCard({
             Read More{" "}
             <i className="fa fa-ellipsis-v mx-2" aria-hidden="true"></i>
           </Button>
-          <Button size="small">
+          {/* <Button size="small">
             <StyledLink underline="none">
               Saved <i className="fa fa-bookmark-o" aria-hidden="true" />
             </StyledLink>
-          </Button>
+          </Button> */}
           <Button size="small">
             <StyledLink underline="none">
               Delete <i className="fa fa-trash" aria-hidden="true"></i>

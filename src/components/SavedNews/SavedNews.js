@@ -1,10 +1,10 @@
-import styles from "./News.module.css";
+import styles from "./SavedNews.module.css";
 import Grid from "@mui/material/Grid";
-import NewsCard from "../NewsCard/NewsCard";
-import { convertFromISOStringToLocaleDate } from "../../utils/convertDate";
+import SavedNewsCard from "../SavedNewsCard/SavedNewsCard";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
-export default function News({data}) {
+
+export default function SavedNews({data}) {
   return (
     <div className={styles.container}>
       {data ? (
@@ -19,13 +19,13 @@ export default function News({data}) {
                 key={Math.random()}
                 style={{ display: "flex" }}
               >
-                <NewsCard
-                  image={article.urlToImage}
-                  title={article.title}
-                  date={convertFromISOStringToLocaleDate(article.publishedAt)}
-                  url={article.url}
-                  content={article.content}
-                  details={article.description}
+                {console.log(article.savedImage)}
+                <SavedNewsCard
+                  image={article.savedImage}
+                  title={article.savedtitle}
+                  date={article.savedDate}
+                  content={article.savedContent}
+                  details={article.savedDetails}
                 />
               </Grid>
             ))}

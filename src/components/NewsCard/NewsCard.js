@@ -54,16 +54,14 @@ export default function NewsCard({
   image,
   title,
   date,
-  url,
   content,
   details,
-  btnValue
 }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const {btnState, setBtnState,  setBtnValue} = useContext(NewsContext)
-
+ 
+  const {saveArticlesInLocalStorage} = useContext(NewsContext)
   return (
     <>
       <StyledCard sx={{ maxWidth: 400, minHeight: 300, maxHeight: 500 }}>
@@ -100,8 +98,8 @@ export default function NewsCard({
             Read More{" "}
             <i className="fa fa-ellipsis-v mx-2" aria-hidden="true"></i>
           </Button>
-          <Button size="small">
-            <StyledLink underline="none" onClick={()=>setBtnState(!btnState)}>
+          <Button size="small" onClick={()=>saveArticlesInLocalStorage(image,title,date,content,details)}>
+            <StyledLink underline="none">
               Save <i className="fa fa-bookmark-o" aria-hidden="true"/>
             </StyledLink>
           </Button>
