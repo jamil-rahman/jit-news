@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# NEXUS-NEWS
+This a Responsive Web application built using [React](https://reactjs.org/), [Material UI](https://mui.com/) and [Bootstrap](https://getbootstrap.com/) for styling and UI components and using [News-API](https://newsapi.org/) APIs for the News Articles. The app allows you to view articles and breaking news headlines from news sources and blogs across the web  as well as save them so that can you read them later on.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## SCREENSHOTS
+<a href="url"><img src="https://cdn.discordapp.com/attachments/948296207070019594/1003086506195435590/unknown.png" height="480" width="480" ></a>
+<a href="url"><img src="https://cdn.discordapp.com/attachments/948296207070019594/1003087135408132146/unknown.png" height="480" width="480" ></a>
+<a href="url"><img src="https://cdn.discordapp.com/attachments/948296207070019594/1003086634549514280/unknown.png" height="480" width="280" ></a>
 
-## Available Scripts
 
-In the project directory, you can run:
+## FEATURES
 
-### `npm start`
+* A search bar where user can search for a news using keywords
+* Able to view news based on these categories, e.g. business, sports, entertainment, general
+* User can mark a news as "Read Later" 
+* User can also News Articles from the "Read Later" List.
+* Fully Responsive
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### TECH USED
 
-### `npm test`
+* Bootstrap
+* Material UI
+* Context API
+* React-Router DOM
+* Axios
+* Moment.js
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## SETUP
 
-### `npm run build`
+### 1. Clone the Repository
+Next, you have to clone the repository onto your machine using the following terminal command:
+```bash
+git clone https://github.com/jamil-rahman/jit-news.git
+```
+### 2. Install dependacies
+Now, you need to install all the required dependancies for this app. Go to the client folder using the command:
+```bash
+cd client
+```
+Now use the following command in your terminal:
+```bash
+npm install
+```
+or if you are using yarn, then: 
+```bash
+yarn add
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Run the app
+Now, you can test the app using the following command:
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## CONTACT
+Jamilur Rahman - [r.jamilur96@gmail.com](r.jamilur96@gmail.com) <br>
+[LinkedIn](https://www.linkedin.com/in/jamilurrahman96/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ATTRIBUTION
+[Flaticon](www.flaticon.com)
+[InsideMaps](https://www.insidemaps.com/) for giving me the opportunity to work on this
