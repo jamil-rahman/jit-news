@@ -2,8 +2,8 @@
 This a Responsive Web application built using [React](https://reactjs.org/), [Material UI](https://mui.com/) and [Bootstrap](https://getbootstrap.com/) for styling and UI components and using [News-API](https://newsapi.org/) APIs for the News Articles. The app allows you to view articles and breaking news headlines from news sources and blogs across the web  as well as save them so that can you read them later on.
 
 ## SCREENSHOTS
-<a href="url"><img src="https://cdn.discordapp.com/attachments/948296207070019594/1003086506195435590/unknown.png" height="480" width="480" ></a>
-<a href="url"><img src="https://cdn.discordapp.com/attachments/948296207070019594/1003087135408132146/unknown.png" height="480" width="480" ></a>
+<a href="url"><img src="https://cdn.discordapp.com/attachments/948296207070019594/1003086506195435590/unknown.png" height="480" width="600" ></a>
+<a href="url"><img src="https://cdn.discordapp.com/attachments/948296207070019594/1003087135408132146/unknown.png" height="480" width="600" ></a>
 <a href="url"><img src="https://cdn.discordapp.com/attachments/948296207070019594/1003086634549514280/unknown.png" height="480" width="280" ></a>
 
 
@@ -57,5 +57,5 @@ Jamilur Rahman - [r.jamilur96@gmail.com](r.jamilur96@gmail.com) <br>
 [LinkedIn](https://www.linkedin.com/in/jamilurrahman96/)
 
 ## ATTRIBUTION
-[Flaticon](www.flaticon.com)
+[Flaticon](www.flaticon.com) <brnpm,>
 [InsideMaps](https://www.insidemaps.com/) for giving me the opportunity to work on this
