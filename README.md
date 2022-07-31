@@ -57,5 +57,5 @@ Jamilur Rahman - [r.jamilur96@gmail.com](r.jamilur96@gmail.com) <br>
 [LinkedIn](https://www.linkedin.com/in/jamilurrahman96/)
 
 ## ATTRIBUTION
-[Flaticon](www.flaticon.com) <brnpm,>
+[Flaticon](www.flaticon.com) <br>
 [InsideMaps](https://www.insidemaps.com/) for giving me the opportunity to work on this
